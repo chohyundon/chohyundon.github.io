@@ -30,7 +30,7 @@ masthead_title: # overrides the website title displayed in the masthead, use " "
 breadcrumbs: true # true, false (default)
 words_per_minute: 200
 comments:
-  provider: "disqus" #(default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
+  provider: "default" #(default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
   disqus:
     shortname: "https://chohyundon.github.io."
   discourse:
@@ -110,11 +110,11 @@ author:
   email: "gse06044@naver.com"
   links:
     - label: "Email"
-      icon: "gse06044@naver.com"
-      # url: "mailto:your.name@email.com"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "gse06044@naver.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+      url: "https://github.com/chohyundon"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://www.instagram.com/dony._.cho/"
