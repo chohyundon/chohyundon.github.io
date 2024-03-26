@@ -16,11 +16,11 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Title"
+title                    : "Donny_Blog"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Your Name"
-description              : "An amazing website."
+name                     : "조현돈"
+description              : "프론트엔드 개발자를 희망하고 있는 조현돈이라고 합니다."
 url                      : "https://donny_blog.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -104,14 +104,14 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "조현돈"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I am an **amazing** person."
   location         : "Somewhere"
-  email            :
+  email            : "gse06044@naver.com"
   links:
     - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
+      icon: "gse06044@naver.com"
       # url: "mailto:your.name@email.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
@@ -123,7 +123,7 @@ author:
       icon: "fab fa-fw fa-facebook-square"
       # url: "https://facebook.com/"
     - label: "GitHub"
-      icon: "fab fa-fw fa-github"
+      icon: "https://github.com/chohyundon"
       # url: "https://github.com/"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
@@ -132,23 +132,8 @@ author:
 # Site Footer
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      # url:
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
-      # url:
-    - label: "Bitbucket"
-      icon: "fab fa-fw fa-bitbucket"
-      # url:
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
+     - label: "GitHub"
+      icon: "https://github.com/chohyundon"
       # url:
 
 
