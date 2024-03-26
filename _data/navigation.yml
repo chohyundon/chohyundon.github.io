@@ -2,6 +2,12 @@
 main:
   - title: "CateGory"
     url: /categories/
+
+docs:
+  - title: "목차"
+  children: 
+    - title: "Category"
+    url: /categories/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
