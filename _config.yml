@@ -108,9 +108,6 @@ author:
   bio: "donny의 블로그 입니다."
   location: "South Korea"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "gse06044@naver.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/chohyundon"
