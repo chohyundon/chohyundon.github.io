@@ -16,9 +16,9 @@ minimal_mistakes_skin: "air" # "air", "aqua", "contrast", "dark", "dirt", "neon"
 
 # Site Settings
 locale: "ko_KR"
-title: "Donny_Blog"
+title: "👨🏻‍💻 Donny_Blog"
 title_separator: "|"
-subtitle: "도니의 블로그입니다"
+subtitle: "도니의 블로그입니다"ㄴ
 name: "조현돈"
 description: "donny 블로그 입니다."
 url: "https://github.com/chohyundon"
