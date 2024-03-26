@@ -12,14 +12,13 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
-
+minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale: "ko_KR"
-title: "Donny_Blog"
+title: "Donny_Blog 👨🏻‍💻"
 title_separator: "|"
-subtitle: "도니의 블로그입니다"ㄴ
+subtitle: "도니의 블로그입니다"
 name: "조현돈"
 description: "donny 블로그 입니다."
 url: "https://github.com/chohyundon"
@@ -31,7 +30,7 @@ masthead_title: # overrides the website title displayed in the masthead, use " "
 breadcrumbs: true # true, false (default)
 words_per_minute: 200
 comments:
-  provider: "disqus" #(default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
+  provider: "default" #(default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
   disqus:
     shortname: "https://chohyundon.github.io."
   discourse:
