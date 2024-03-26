@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "aqua" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin: "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale: "ko_KR"
@@ -21,7 +21,7 @@ title_separator: "|"
 subtitle: # site tagline that appears below site title in masthead
 name: "조현돈"
 description: "donny 블로그 입니다."
-url: "https://donny_blog.github.io"
+url: "https://github.com/chohyundon"
 baseurl: # the subpath of your site, e.g. "/blog"
 repository: # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser: # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -109,24 +109,15 @@ author:
   location: "South Korea"
   email: "gse06044@naver.com"
   links:
-    - label: "Email"
+    label: "Email"
       icon: "gse06044@naver.com"
       # url: "mailto:your.name@email.com"
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
-    - label: "GitHub"
-      icon: "https://github.com/chohyundon"
+    label: "GitHub"
+      icon: "fab fa-fw fa-github"
       # url: "https://github.com/"
-    - label: "Instagram"
+    label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+      url: "https://www.instagram.com/dony._.cho/"
 
 # Site Footer
 footer:
