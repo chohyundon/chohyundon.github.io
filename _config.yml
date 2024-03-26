@@ -17,7 +17,7 @@ minimal_mistakes_skin : "default" # "air", "aqua", "contrast", "dark", "dirt", "
 
 # Site Settings
 locale: "ko_KR"
-title: "Donny_Blog 👨🏻‍💻"
+title: "Donny_Blog"
 title_separator: "|"
 subtitle: "도니의 블로그입니다"ㄴ
 name: "조현돈"
