@@ -18,7 +18,7 @@ minimal_mistakes_skin: "air" # "air", "aqua", "contrast", "dark", "dirt", "neon"
 locale: "ko_KR"
 title: "Donny_Blog"
 title_separator: "|"
-subtitle: # site tagline that appears below site title in masthead
+subtitle: "도니의 블로그입니다"
 name: "조현돈"
 description: "donny 블로그 입니다."
 url: "https://github.com/chohyundon"
