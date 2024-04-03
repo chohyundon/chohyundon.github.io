@@ -1,0 +1,55 @@
+# 서버란?
+
+> 데이터 요청하면 데이터를 보내주는 프로그램이다!!
+> 
+
+# 통신
+
+> 서버한테 데이터를 주거나 받고싶을 때는 어떻게 해야할까? 
+우선 답부터 이야기하자면 데이터를 요청할 때는 URL을 입력하고 받을때는 GET 보내고 싶을 때는 POST를 사용하면 된다.
+> 
+
+# Ajax
+
+> 서버랑 통신할 때 새로고침이 되는 현상(로드)을 Ajax를 사용하면 이런 새로고침 없이도 데이터가 나오거나 보낼수 있다.
+> 
+
+# Ajax 통신 라이브러리
+
+> axios 라는 라이브러리를 사용하면 axios.get을 하고 URL을 넣으면 서버로부터 쉽게 데이터를 가져올 수 있다
+> 
+
+```jsx
+예시코드
+import { useState } from "react";
+import data from "../data/data";
+import axios from "axios";
+
+function Main() {
+  const [result, setResult] = useState(data);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    axios.get("https://codingapple1.github.io/shop/data2.json").then((res) => {
+      let copy = [...result, ...res.data];
+      setResult(copy);
+      console.log(result);
+    });
+  };
+
+  return (
+    <>
+      {result.map((item) => (
+        <div key={item.id} style={{ display: "flex", flexDirection: "column" }}>
+          <h1>{item.title}</h1>
+          <h2>{item.content}</h2>
+        </div>
+      ))}
+      <button onClick={handleClick}>버튼</button>
+    </>
+  );
+}
+
+export default Main;
+
+```
