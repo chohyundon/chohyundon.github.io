@@ -28,9 +28,7 @@ author_profile: false
 - 다음에 import한 createBottomTabNavigator를 호출해주자
   -> Tab의 값을 콘솔에 찍어서 확인해보니
 
-  ```
-  {"Group": [Function Group], "Navigator": [Function BottomTabNavigator], "Screen": [Function Screen]}
-  ```
+  `{"Group": [Function Group], "Navigator": [Function BottomTabNavigator], "Screen": [Function Screen]}`
 
 <br>
 
@@ -74,7 +72,5 @@ function MyTabs() {
 ```
 
 - 위의 코드에서는 생략된 부분이 하나 있는데 component를 사용할 떄 각각 컴포넌트들을 import를 진행해줘야한다
-  ```
-  import HomeScreen from
-  import SettingsScreen from
-  ```
+  `import HomeScreen from,
+import SettingsScreen from`
