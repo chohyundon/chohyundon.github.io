@@ -26,7 +26,8 @@ author_profile: false
 
 - createBottomTabNavigator를 import를 먼저 해주자
 - 다음에 import한 createBottomTabNavigator를 호출해주자
-  -> Tab의 값을 콘솔에 찍어서 확인해보니
+
+  > Tab의 값을 콘솔에 찍어서 확인해보니
 
   > {"Group": [Function Group], "Navigator": [Function BottomTabNavigator], "Screen": [Function Screen]}
 
