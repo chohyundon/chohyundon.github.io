@@ -38,17 +38,20 @@ author_profile: false
 
 > 마지막으로 Screen은 화면 구성을 나타내는데 component에 버튼으로 화면 전환 했을 때 렌더링이 되도록 만든다
 
-````javascript
+```javascript
 <Tab.Navigator>
   <Tab.Group
-    screenOptions={{ headerShown: false, tabBarStyle: { backgroundColor: 'blue' } }}
+    screenOptions={{
+      headerShown: false,
+      tabBarStyle: { backgroundColor: "blue" },
+    }}
   >
     <Tab.Screen name="Home" component={HomeScreen} />
     <Tab.Screen name="Profile" component={ProfileScreen} />
   </Tab.Group>
   <Tab.Screen name="Settings" component={SettingsScreen} />
-</Tab.Navigator> ```
-````
+</Tab.Navigator>
+```
 
   <br>
 
