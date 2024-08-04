@@ -39,35 +39,3 @@ author_profile: false
 > Navigator는 사용자가 버튼을 클릭할 때 화면 전환을 할 수 있도록 도와준다고 한다. 그래서 보통 가장 먼저 Navigator를 선언한다.
 
 > 마지막으로 Screen은 화면 구성을 나타내는데 component에 버튼으로 화면 전환 했을 때 렌더링이 되도록 만든다
-
-```javascript
-<Tab.Navigator>
-  <Tab.Group
-    screenOptions={{
-      headerShown: false,
-      tabBarStyle: { backgroundColor: "blue" },
-    }}
-  >
-    <Tab.Screen name="Home" component={HomeScreen} />
-    <Tab.Screen name="Profile" component={ProfileScreen} />
-  </Tab.Group>
-  <Tab.Screen name="Settings" component={SettingsScreen} />
-</Tab.Navigator>
-```
-
-<br />
-
-```javascript
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
-const Tab = createBottomTabNavigator();
-
-function MyTabs() {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
-    </Tab.Navigator>
-  );
-}
-```
