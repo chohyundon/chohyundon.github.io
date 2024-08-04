@@ -28,9 +28,9 @@ author_profile: false
 - 다음에 import한 createBottomTabNavigator를 호출해주자
   -> Tab의 값을 콘솔에 찍어서 확인해보니
 
-  `{"Group": [Function Group], "Navigator": [Function BottomTabNavigator], "Screen": [Function Screen]}`
+  > {"Group": [Function Group], "Navigator": [Function BottomTabNavigator], "Screen": [Function Screen]}
 
-<br>
+<br />
 
 > 간단하게 <strong>Group</strong>은 여러화면에 공통된 속성을 관리할 떄 유용할거 같다.
 > 아래 코드 처럼 Group으로 Home, Profile을 같은 속성을 사용할 때 다음과 같이 사용하면 유용할거 같다
@@ -54,7 +54,7 @@ author_profile: false
 </Tab.Navigator>
 ```
 
-  <br>
+<br/ >
 
 ```javascript
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -70,7 +70,3 @@ function MyTabs() {
   );
 }
 ```
-
-- 위의 코드에서는 생략된 부분이 하나 있는데 component를 사용할 떄 각각 컴포넌트들을 import를 진행해줘야한다
-  `import HomeScreen from
-import SettingsScreen from`
