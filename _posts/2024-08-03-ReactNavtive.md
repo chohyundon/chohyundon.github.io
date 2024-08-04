@@ -54,7 +54,7 @@ author_profile: false
 </Tab.Navigator>
 ```
 
-<br/ >
+<br />
 
 ```javascript
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
