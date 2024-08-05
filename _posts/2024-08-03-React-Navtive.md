@@ -78,4 +78,118 @@ function MyTabs() {
 #### SVG 사용해보기
 
 - <strong>Expo</strong> : https://docs.expo.dev/ui-programming/using-svgs/
-- Expo에서 시용법은
+- Expo에서 시용법은 아래 명령어를 통해 패키지를 설치해주자
+  `npx expo install react-native-svg`
+- 다음으로는 SVG파일 자체를 그대로 아래 코드처럼 가져와서 사용해야한다. 여기서 <strong>⚠️주의사항</strong>은 SVG 파일은 첫번째가 모두 대문자로 시작해야 한다.
+
+```javascript
+import React from "react";
+import { Text, View, StyleSheet } from "react-native";
+import Svg, { Path } from "react-native-svg";
+
+export default function TriangleDown() {
+  return (
+    <View style={styles.container}>
+      <Svg width={20} height={20} viewBox="0 0 20 20">
+        <Path d="M16.993 6.667H3.227l6.883 6.883 6.883-6.883z" fill="#000" />
+      </Svg>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
+```
+
+- 위 방법의 단점은 코드의 가독성이 많이 떨어진다. 기존의 React는 SVG파일의 경로를 import해서 사용했었는데...
+
+- <strong>React Native CLi</strong> : https://www.npmjs.com/package/react-native-svg#installation
+- 우선 나는 yarn을 사용해볼거기 때문에 `yarn add react-native-svg`을 사용한다. 다음으로 `cd ios && pod install` 을 통해 라이브러리를 설치 해준다
+
+- 추가사항으로 React Native CLi는 자체적으로 SVG파일 자체를 Import를 할 수가 없어서 `react-native-svg-transformer`를 설치해서 import 할 수 있도록 만들어보자
+
+- 다음으로 `metro.config.js` 파일을 수정해줘야 한다. Native 버전이 0.72이상이면
+
+```javascript
+const { getDefaultConfig, mergeConfig } = require("@react-native/metro-config");
+
+const defaultConfig = getDefaultConfig(__dirname);
+const { assetExts, sourceExts } = defaultConfig.resolver;
+
+/**
+ * Metro configuration
+ * https://facebook.github.io/metro/docs/configuration
+ *
+ * @type {import('metro-config').MetroConfig}
+ */
+const config = {
+  transformer: {
+    babelTransformerPath: require.resolve("react-native-svg-transformer"),
+  },
+  resolver: {
+    assetExts: assetExts.filter((ext) => ext !== "svg"),
+    sourceExts: [...sourceExts, "svg"],
+  },
+};
+
+module.exports = mergeConfig(defaultConfig, config);
+```
+
+- 이하 버전은 아래와 같이 파일을 수정해주자
+
+```javascript
+const { getDefaultConfig } = require("metro-config");
+
+module.exports = (async () => {
+  const {
+    resolver: { sourceExts, assetExts },
+  } = await getDefaultConfig();
+  return {
+    transformer: {
+      babelTransformerPath: require.resolve("react-native-svg-transformer"),
+    },
+    resolver: {
+      assetExts: assetExts.filter((ext) => ext !== "svg"),
+      sourceExts: [...sourceExts, "svg"],
+    },
+  };
+})();
+```
+
+- 그리고 추가적으로 타입스크립트를 사용중이라면, global.d.ts 파일을 생성해주고(파일 이름은 다른 이름 대체가능)
+
+```typescript
+declare module "*.svg" {
+  import React from "react";
+  import { SvgProps } from "react-native-svg";
+  const content: React.FC<SvgProps>;
+  export default content;
+}
+```
+
+- 세팅은 마무리가 되었고, 사용을 해보자
+
+```typescript
+import React from 'react';
+import {SafeAreaView, Text} from 'react-native';
+import Icon from './assets/Vector.svg';
+
+export default function App() {
+  return (
+    <SafeAreaView>
+      <Text>hi</Text>
+      <Icon width={120} height={40} fill={'#FFF'} />
+    </SafeAreaView>
+  );
+}
+
+```
+
+![스크린샷 2024-08-05 18 09 48](https://github.com/user-attachments/assets/34d16937-b412-48f4-add8-edd6f4e87760)
+
+- 화면을 보니 잘 나오는것을 볼 수 있다 !!!😀
