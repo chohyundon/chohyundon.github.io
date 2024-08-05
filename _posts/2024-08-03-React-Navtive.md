@@ -55,11 +55,8 @@ author_profile: false
 </Tab.Navigator>
 ```
 
-<br />
-
 ```javascript
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
