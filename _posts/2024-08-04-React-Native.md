@@ -99,5 +99,91 @@ export { default as MyPage } from "./MyPage";
 ```
 
 - 여기서 default as를 사용한 이유는 별칭을 따로 지정해주고 싶어서 라고 보면 된다.
-- 위처럼 index.ts export를 하게 되면 `import {Home, Coupon, Share, MyPage} from '../screen';`
+- 위처럼 index.ts export를 하게 되면
+
+`import {Home, Coupon, Share, MyPage} from '../screen';`
+
 - 위와 같이 어떤 폴더에서 import했는지 한 눈에 알아볼수 있다.
+
+# 터치이벤트 어떤거 사용할까 🤔
+
+- React Native에서는 두 가지의 터치 이벤트 컴포넌트를 제공한다. Pressable과 TouchableOpacity이다.
+
+  <br/>
+
+> 둘의 차이점으로는 TouchableOpacity의 경우 주로 투명도 조절을 위해 사용한다고 한다.Pressable의 경우는 터치상태에 따라 더 다양한 스타일 등을 적용시킬 수 있다고 한다.
+
+<br />
+- 결론 : 둘의 차이점은 크지는 않지만 Presable이 좀더 다양한 스타일 적용이 가능해 Pressable을 많이 사용해보자
+
+```typescript
+    <Pressable
+      onPress={() => navigation.navigate('Login')}
+      style={({pressed}) => [
+        pressed ? styles.pressed : undefined,
+        styles.addButton,
+      ]}>
+      <Text style={styles.addCouponText}>쿠폰 추가하기</Text>
+    </Pressable>
+  );
+```
+
+- Pressable로 만든 코드이고 style에 pressed라는 속성을 통해 터치가 되었다면, pressed라는 css를 적용시켜 줬다
+
+- onPress를 통해 경로도 같이 이동시키도록 만들었다
+
+# 카카오 로그인 구현하기
+
+- 프로젝트를 만들면서 로그인을 구현해야 하는데 우리는 카카오 로그인 구현을 하기로 하였다.
+
+  > 카카오로그인 참고문서 : https://github.com/crossplatformkorea/react-native-kakao-login?tab=readme-ov-file >
+
+   <br />
+
+- 문서를 보면 우선 React Native Cli의 경우 다음 패키지를 설치해주자
+  `yarn add @react-native-seoul/kakao-login`
+
+- 다음으로 `npx-pod install`을 진행해주자
+
+- 이제 ios의 폴더에 있는 info.plist를 수정해줘야 하는데, Xcode로 가서 현재 프로젝트 ios 폴더를 실행 시키고, project의 info로 가서 URL Types를 클릭하고, <strong>URL Schemes에</strong> kakao본인 네이티브키를 넣어주면 끝이다.
+
+- 그 다음 아래 코드를 info.plist에 넣어주면 된다.아마 위 방법을 그대로 실행했다면 cmd + f or Ctrl + f 로 CFBundleVersion를 찾으면 될 것이다
+
+```typescript
++ <key>KAKAO_APP_KEY</key>
++ <string>{카카오 네이티브앱 아이디를 적어주세요}</string>
++ <key>KAKAO_APP_SCHEME</key> // 선택 사항 멀티 플랫폼 앱 구현 시에만 추가하면 됩니다
++ <string>{카카오 앱 스킴을 적어주세요}</string> // 선택 사항
++ <key>LSApplicationQueriesSchemes</key>
++ <array>
++   <string>kakaokompassauth</string>
++   <string>storykompassauth</string>
++   <string>kakaolink</string>
++ </array>
+```
+
+- 다음과 같이 수정하면 끝 준비완료다!
+
+```typescript
+import { KakaoOAuthToken, login } from "@react-native-seoul/kakao-login";
+import { Alert } from "react-native";
+import { navigate } from "./NavigationService";
+
+export const signInWithKakao = async (): Promise<void> => {
+  const token: KakaoOAuthToken = await login();
+
+  if (token) {
+    setTimeout(() => {
+      Alert.alert("알림", "로그인 되었습니다", [
+        {
+          text: "확인",
+          onPress: () => navigate("Bottom", { screen: "Home" }),
+        },
+      ]);
+    }, 2000);
+  }
+};
+```
+
+- 햔재 코드를 실행해보니 login이 잘 실행된다!.
+- 글로만 보면 모를 수 있으니 참고문서에서 Tutorial에 가서 영상을 보면 더 이해가 잘 될것이다
