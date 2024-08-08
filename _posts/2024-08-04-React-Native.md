@@ -187,3 +187,32 @@ export const signInWithKakao = async (): Promise<void> => {
 
 - 햔재 코드를 실행해보니 login이 잘 실행된다!.
 - 글로만 보면 모를 수 있으니 참고문서에서 Tutorial에 가서 영상을 보면 더 이해가 잘 될것이다
+
+# 페이지 이동 어떻게 해야할까 🤔
+
+- 평소 나는 페이지 이동을 할 때 useNavigation을 사용했다.
+- 하지만 로그인처리를 함수로 만들어서 처리하고 싶어서 useNavigation은 컴포넌트에서 내부에서만 사용이 가능해서 오류가 지속적으로 발생했다...
+- 해결방법을 찾아보다가 <strong>navigationRef</strong>가 있다는 것을 알게 되었다!
+
+### navigationRef사용법
+
+- 사용법은 매우 간단했다.
+
+1. navigationRef를 createNavigationContainerRef로 참조하기
+   `export const navigationRef = createNavigationContainerRef<RootStackParam>();`
+
+- 저 참조한 navigationRef를 콘솔에 찍어보니 다양한 객체를 사용이 가능한데
+  > 간단하게만 알아보자면 isReady객체는 navigationRef가 사용이 준비 되었는지 확인하는데, 비동기 작업을 할 때 유용할거 같다. 다음으로는 navigate 이전과 동일하게 페이지 이동을 도와준다.
+
+2. 참조를 했다면 navigate함수를 만들어서 다음과 같이 작성해주자
+
+```typescript
+export function navigate(name, params) {
+  if (navigationRef.isReady()) {
+    navigationRef.navigate(name, params);
+  }
+```
+
+3. 마지막으로 NavigationContainer에 ref로 참조한 navigationRef를 연결해주면 사용준비 끝!!
+
+<strong>위와 같이 사용하면 컴포넌트 내부에서만 사용이 가능한게 아니라 외부 함수까지도 사용이 가능해진다!!</strong>
